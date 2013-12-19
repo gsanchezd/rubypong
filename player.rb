@@ -8,6 +8,7 @@ class Player
 
 	def up
 		@y -= @vel_y
+		@y = 0 if @y <= 0
 	end
 
 	def down
