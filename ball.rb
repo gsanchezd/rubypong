@@ -4,7 +4,7 @@ class Ball
 		@y = 0.0
 		@x = x
 		@vel_y = 2.0
-		@vel_x = 2.0
+		@vel_x = 3.0
 
 		@score = 0
 		@image = Gosu::Image.new(window, "ball.jpg", true)
@@ -44,5 +44,9 @@ class Ball
   		{:x => hitbox_x, :y => hitbox_y}
 	end
 
+	def y
+		pp @y
+		return @y
+	end
 
 end

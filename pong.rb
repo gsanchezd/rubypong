@@ -9,7 +9,7 @@ class GameWindow < Gosu::Window
     super 640, 480, false
     self.caption = "Pong"
     @player1 = Player.new(self, 0)
-    @player2 = Player.new(self, 600)
+    @player2 = Player.new(self, 600, bot = true)
 
     @ball = Ball.new(self, 100)
 
@@ -18,11 +18,9 @@ class GameWindow < Gosu::Window
   def update
     if button_down? Gosu::KbUp or button_down? Gosu::GpButton0 then
       @player1.up
-      @player2.up
     end
     if button_down? Gosu::KbDown or button_down? Gosu::GpButton1 then
       @player1.down
-      @player2.down
     end
 
     if collision?(@player1, @ball)
@@ -34,6 +32,13 @@ class GameWindow < Gosu::Window
     end
     
     @ball.move
+    
+    #IA 
+    if @player2.center_y >= @ball.y
+      @player2.up
+    else
+      @player2.down
+    end
   end
 
   def draw

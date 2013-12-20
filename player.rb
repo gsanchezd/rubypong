@@ -1,6 +1,6 @@
 require 'pp'
 class Player
-	def initialize(window, x)
+	def initialize(window, x, bot = true)
 		@y = 0.0
 		@x = x
 		@vel_y = 10.0
@@ -26,10 +26,18 @@ class Player
 		pp hitbox
 	end
 
+	def center_y
+		pp "center #{@y + (@image.height / 2).to_i}"
+		@y + (@image.height / 2).to_i
+	end
+
+	def bot?
+		return bot
+	end
 
 	def hitbox
   		hitbox_x = ((@x.to_i)..(@x + @image.width.to_i)).to_a
-  		hitbox_y = ((@y.to_i)..(@y + @image.width.to_i)).to_a
+  		hitbox_y = ((@y.to_i)..(@y + @image.height.to_i)).to_a
   		{:x => hitbox_x, :y => hitbox_y}
 	end
 end
