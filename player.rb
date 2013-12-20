@@ -36,6 +36,14 @@ class Player
 		return bot
 	end
 
+	def get_score
+		return @score
+	end
+
+	def set_score(score)
+		@score = score
+	end
+
 
 	def hitbox
   		hitbox_x = ((@x.to_i)..(@x + @image.width.to_i)).to_a

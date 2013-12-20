@@ -12,7 +12,7 @@ class GameWindow < Gosu::Window
     @player2 = Player.new(self, 600, bot = true)
 
     @ball = Ball.new(self, 100)
-
+    @font = Gosu::Font.new(self, Gosu::default_font_name, 20)
   end
   
   def update
@@ -45,10 +45,10 @@ class GameWindow < Gosu::Window
     # Offscreen
     if @ball.get_x < 0
       @ball.restart
-      @player1.score += 1
+      @player2.set_score(@player2.get_score + 1)
     elsif @ball.get_x > 640
       @ball.restart
-      @player2.score += 1
+      @player1.set_score(@player1.get_score + 1)
     end
 
   end
@@ -57,6 +57,8 @@ class GameWindow < Gosu::Window
   	@player1.draw
     @player2.draw
   	@ball.draw
+    @font.draw("Score: #{@player1.get_score}", 10, 10, 2, 1.0, 1.0, 0xffffff00)
+    @font.draw("Score: #{@player2.get_score}", 500, 10, 2, 1.0, 1.0, 0xffffff00)
   end
 
   def collision?(object_1, object_2)
