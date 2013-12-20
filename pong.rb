@@ -32,7 +32,9 @@ class GameWindow < Gosu::Window
     end
     
     @ball.move
-    
+    @player1.move
+    @player2.move
+
     #IA 
     if @player2.center_y >= @ball.y
       @player2.up

@@ -9,7 +9,7 @@ class GameWindow < Gosu::Window
     super 640, 480, false
     self.caption = "Pong"
     @player1 = Player.new(self, 0)
-    @player2 = Player.new(self, 600, bot = true)
+    @player2 = Player.new(self, 600)
 
     @ball = Ball.new(self, 100)
     @font = Gosu::Font.new(self, Gosu::default_font_name, 20)
@@ -32,7 +32,9 @@ class GameWindow < Gosu::Window
     end
     
     @ball.move
-    
+    @player1.move
+    @player2.move
+
     #IA 
     if @player2.center_y >= @ball.y
       @player2.up

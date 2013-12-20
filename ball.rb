@@ -3,8 +3,8 @@ class Ball
 	def initialize(window, x)
 		@y = 0.0
 		@x = x
-		@vel_y = 2.0
-		@vel_x = 3.0
+		@vel_y = 3.0
+		@vel_x = 4.0
 		@image = Gosu::Image.new(window, "ball.jpg", true)
 	end
 
@@ -50,7 +50,6 @@ class Ball
 	end
 
 	def y
-		pp @y
 		return @y
 	end
 
