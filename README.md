@@ -7,3 +7,8 @@ How to start
 ===
 
 ruby pong.rb
+
+requirements
+===
+
+gosu
