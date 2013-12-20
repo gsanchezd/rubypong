@@ -1,3 +1,4 @@
+require 'pp'
 class Ball
 	def initialize(window, x)
 		@y = 0.0

@@ -1,3 +1,4 @@
+require 'pp'
 class Player
 	def initialize(window, x)
 		@y = 0.0
@@ -21,9 +22,14 @@ class Player
 		@image.draw(@x, @y, 0)
 	end
 
+	def update
+		pp hitbox
+	end
+
+
 	def hitbox
-  		hitbox_x = ((@x - @image.width/2).to_i..(@x + @image.width/2.to_i)).to_a
-  		hitbox_y = ((@y - @image.width/2).to_i..(@y + @image.width/2).to_i).to_a
+  		hitbox_x = ((@x.to_i)..(@x + @image.width.to_i)).to_a
+  		hitbox_y = ((@y.to_i)..(@y + @image.width.to_i)).to_a
   		{:x => hitbox_x, :y => hitbox_y}
 	end
 end
