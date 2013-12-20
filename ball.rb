@@ -5,9 +5,14 @@ class Ball
 		@x = x
 		@vel_y = 2.0
 		@vel_x = 3.0
-
-		@score = 0
 		@image = Gosu::Image.new(window, "ball.jpg", true)
+	end
+
+	def restart
+		@y = 0.0
+		@x = 300
+		@vel_y = 2.0
+		@vel_x = 3.0
 	end
 
 	def move
@@ -48,5 +53,10 @@ class Ball
 		pp @y
 		return @y
 	end
+
+	def get_x
+		return @x
+	end
+
 
 end

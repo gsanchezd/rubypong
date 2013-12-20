@@ -36,9 +36,21 @@ class GameWindow < Gosu::Window
     #IA 
     if @player2.center_y >= @ball.y
       @player2.up
-    else
+    end
+
+    if @player2.center_y < @ball.y
       @player2.down
     end
+
+    # Offscreen
+    if @ball.get_x < 0
+      @ball.restart
+      @player1.score += 1
+    elsif @ball.get_x > 640
+      @ball.restart
+      @player2.score += 1
+    end
+
   end
 
   def draw

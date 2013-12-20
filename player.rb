@@ -1,9 +1,10 @@
 require 'pp'
 class Player
+
 	def initialize(window, x, bot = true)
 		@y = 0.0
 		@x = x
-		@vel_y = 10.0
+		@vel_y = 5.0
 		@score = 0
 		@image = Gosu::Image.new(window, "pal.jpg", true)
 	end
@@ -34,6 +35,7 @@ class Player
 	def bot?
 		return bot
 	end
+
 
 	def hitbox
   		hitbox_x = ((@x.to_i)..(@x + @image.width.to_i)).to_a
